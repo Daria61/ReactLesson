@@ -1,25 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Main from './components/Main';
 function App() {
+  const data = {
+    welcome : "Welcome to component and props corner",
+    title : "React",
+    subtitle : "JS Library",
+    user :{
+      firstName  : "Jonh",
+      lastName : "Sedrick"
+    },
+    techskill: ["HTML", "JS", "CSS", "React"],
+    date : new Date()
+  }
+  const greetingPeople = ()=> {
+    alert ("welcome to my corner")
+    }
+  const showDate = ()=>{
+    let date = new Date();
+    alert(date)
+    } 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header 
+      welcome={data.welcome} 
+      title = {data.title} 
+      subtitle = {data.subtitle}/>
+      <Main techs = {data.techskill} user={data.user} greetPeople ={greetingPeople}
+      showDate = {showDate}/>
+      <Footer date = {data.date}/>
     </div>
   );
+
 }
 
 export default App;
